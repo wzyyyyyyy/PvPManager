@@ -16,7 +16,7 @@ THook(void, "?respawn@Player@@UEAAXXZ", Player* pl) {
 		pl->addEffect(eff);
 	}
 	else {
-		auto eff = MobEffectInstance::MobEffectInstance((int)MobEffect::EffectType::Resistance, 200, 1, 0, 1, 0);
+		auto eff = MobEffectInstance::MobEffectInstance((int)MobEffect::EffectType::Resistance, 150, 1, 0, 1, 0);
 		pl->addEffect(eff);
 	}
 }
