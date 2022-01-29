@@ -15,5 +15,6 @@ bool PlayerDieEV(const Event::PlayerDieEvent& ev) {
 		::Global<Level>->spawnParticleEffect("minecraft:lava_particle", ev.mPlayer->getPos().add(0, 1, 0), &ac->getDimension());
 		::Global<Level>->spawnParticleEffect("minecraft:lava_particle", ev.mPlayer->getPos().add(0, 1, 0), &ac->getDimension());
 	}
+	else PvP(ev.mPlayer).setLastKilledBy("");
 	return true;
 }
