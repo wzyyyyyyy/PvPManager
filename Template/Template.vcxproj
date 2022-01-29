@@ -12,6 +12,7 @@
     <ProjectGuid>{abeb5558-c92f-473e-8bdf-90f58bd3811c}</ProjectGuid>
     <RootNamespace>Template</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>PvPManager</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -33,6 +34,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>$(SolutionDir)SDK\Header\third-party;$(SolutionDir)SDK\Header;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <OutDir>..\..\..\..\Desktop\mc\plugins</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -78,15 +80,29 @@ copy /Y $(TargetPath) $(LocalDebuggerWorkingDirectory)\plugins\
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Event.h" />
+    <ClInclude Include="Events.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="Global.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="PMCommand.h" />
+    <ClInclude Include="PVP.h" />
+    <ClInclude Include="PvPUtils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="Event.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="PlayerAttackEvent.cpp" />
+    <ClCompile Include="PlayerDieEvent.cpp" />
+    <ClCompile Include="PlayerHurtEvent.cpp" />
+    <ClCompile Include="PlayerRespawnEvent.cpp" />
     <ClCompile Include="Plugin.cpp" />
+    <ClCompile Include="PMCommand.cpp" />
+    <ClCompile Include="PVP.cpp" />
+    <ClCompile Include="PvPUtils.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
