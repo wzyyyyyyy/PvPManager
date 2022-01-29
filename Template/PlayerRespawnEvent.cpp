@@ -11,10 +11,13 @@ bool PlayerRespawnEV(const Event::PlayerRespawnEvent& ev) {
 
 THook(void, "?respawn@Player@@UEAAXXZ", Player* pl) {
 	original(pl);
-	auto eff = MobEffectInstance::MobEffectInstance((int)MobEffect::EffectType::Resistance, 3000, 2, 0, 1, 0);
-	if (PvP(pl).isFirstJoin())
+	if (PvP(pl).isFirstJoin()) {
+		auto eff = MobEffectInstance::MobEffectInstance((int)MobEffect::EffectType::Resistance, 3000, 3, 0, 1, 0);
 		pl->addEffect(eff);
-	else
+	}
+	else {
+		auto eff = MobEffectInstance::MobEffectInstance((int)MobEffect::EffectType::Resistance, 200, 1, 0, 1, 0);
 		pl->addEffect(eff);
+	}
 }
 
