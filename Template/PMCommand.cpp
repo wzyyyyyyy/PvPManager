@@ -70,8 +70,6 @@ public:
 			}
 			}
 			PM::initPvPArea();
-			std::cout << area0.pointA.toString() << std::endl;
-			std::cout << area0.pointB.toString() << std::endl;
 			outp.addMessage(tr("pvp.command.b"));
 			break;
 		}
