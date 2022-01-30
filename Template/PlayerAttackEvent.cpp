@@ -1,5 +1,5 @@
 ﻿#include "pch.h"
-#include "Events.h"
+#include "EventHeaders.h"
 
 bool PlayerAttackEV(const Event::PlayerAttackEvent& ev) {
 	if (ev.mPlayer->isOP()) return true;

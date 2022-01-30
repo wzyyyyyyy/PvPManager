@@ -81,7 +81,7 @@ copy /Y $(TargetPath) $(LocalDebuggerWorkingDirectory)\plugins\
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Event.h" />
-    <ClInclude Include="Events.h" />
+    <ClInclude Include="EventHeaders.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Global.h" />
     <ClInclude Include="pch.h" />
@@ -99,6 +99,7 @@ copy /Y $(TargetPath) $(LocalDebuggerWorkingDirectory)\plugins\
     <ClCompile Include="PlayerDieEvent.cpp" />
     <ClCompile Include="PlayerHurtEvent.cpp" />
     <ClCompile Include="PlayerRespawnEvent.cpp" />
+    <ClCompile Include="PlayerTickEvent.cpp" />
     <ClCompile Include="Plugin.cpp" />
     <ClCompile Include="PMCommand.cpp" />
     <ClCompile Include="PVP.cpp" />

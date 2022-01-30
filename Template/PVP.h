@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <Nlohmann/json.hpp>
 
 class Player;
@@ -8,6 +8,7 @@ class PvP {
 	Player* pl;
 	PvPStatus status;
 	bool isfirstjoin;
+	bool isinpvparea;
 public:
 	PvP(Player* player);
 	PvPStatus getStatus();
@@ -16,4 +17,6 @@ public:
 	std::string getLastKilledBy();
 	void setLastKilledBy(std::string pl);
 	bool isFirstJoin();
+	bool isInPvPArea();
+	void SetInPvPAreaStatus(bool val);
 };

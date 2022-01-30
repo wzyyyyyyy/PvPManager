@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "PVP.h"
 #include "Global.h"
 #include <KVDBAPI.h>
@@ -9,9 +9,11 @@
 #include <unordered_map>
 
 std::unordered_map<Player*, std::string> hist;
+std::unordered_map<Player*, bool> area_status;
 
 PvP::PvP(Player* player) {
 	this->pl = player;
+	this->isinpvparea = area_status[this->pl];
 	std::string tmp;
 	if (db->get(pl->getXuid(), tmp)) {
 		isfirstjoin = false;
@@ -46,4 +48,13 @@ void PvP::setLastKilledBy(std::string pl) {
 bool PvP::isFirstJoin()
 {
 	return this->isfirstjoin;
+}
+
+bool PvP::isInPvPArea() {
+	return this->isinpvparea;
+}
+
+void PvP::SetInPvPAreaStatus(bool val) {
+	this->isinpvparea = val;
+	area_status[this->pl] = val;
 }

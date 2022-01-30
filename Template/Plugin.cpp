@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "Global.h"
 #include "Event.h"
 #include "PvPUtils.h"
@@ -7,7 +7,6 @@
 #include <LoggerAPI.h>
 #include <LLAPI.h>
 #include <TranslationAPI.h>
-#include <unordered_map>
 
 Logger logger("PvPManager");
 std::unique_ptr<KVDB> db;
@@ -25,3 +24,17 @@ void PluginInit()
 	initEvents();
 	logger.info("load sucess!");
 }
+
+/*THook(std::vector<ItemStack>*, "?getRandomItems@LootTable@@QEBA?AV?$vector@VItemStack@@V?$allocator@VItemStack@@@std@@@std@@AEAVRandom@@AEAVLootTableContext@@@Z",
+	LootTable* a1, void* a2, void* a3, LootTableContext* a4) {
+	auto items = original(a1, a2, a3, a4);
+	auto ac = a4->getThisEntity();
+	if (ac)
+		std::cout << ac->getTypeName() << std::endl;
+	for (auto& i : *items) {
+		std::cout << i.getName() << i.getCount() << std::endl;
+	}
+	auto item = ItemStack::create("minecraft:diamond_block", 64);
+	items->push_back(*item);
+	return items;
+}*/
