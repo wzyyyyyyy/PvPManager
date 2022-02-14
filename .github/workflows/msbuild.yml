@@ -31,7 +31,7 @@ jobs:
     - name: Build Library
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        git clone https://github.com/LiteLDev/LiteLoaderSDK/tree/main
+        git clone https://github.com/LiteLDev/LiteLoaderSDK.git
         cd SDK/Tools
         mkdir ../LiteLoader
         mkdir ../LiteLoader/Lib
