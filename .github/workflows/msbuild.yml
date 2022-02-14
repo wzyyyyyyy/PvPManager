@@ -32,6 +32,7 @@ jobs:
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
         git clone https://github.com/LiteLDev/LiteLoaderSDK.git
+        mv ./LiteLoaderSDK/* ./
         cd SDK/Tools
         mkdir ../LiteLoader
         mkdir ../LiteLoader/Lib
