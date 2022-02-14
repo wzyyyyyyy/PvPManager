@@ -33,6 +33,7 @@ jobs:
       run: |
         git clone https://github.com/LiteLDev/LiteLoaderPlugins.git
         mv ./LiteLoaderPlugins/SDK/* ./SDK
+        cd SDK/Tools
         mkdir ../LiteLoader
         mkdir ../LiteLoader/Lib
         ls
