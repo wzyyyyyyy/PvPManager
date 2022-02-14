@@ -74,14 +74,13 @@ jobs:
         path: D:/out/plugins
 
     - name: Compress to zip
-      if: startsWith(github.ref, 'refs/tags/')
       run: |
         7z a D:/out/plugins.zip D:/out/plugins
       shell: bash
 
     - name: Release
       uses: softprops/action-gh-release@v1
-      if: startsWith(github.ref, 'refs/tags/')
+      if: true
       with:
         body_path: ${{ github.workspace }}\CHANGELOG.txt
         files: |
