@@ -44,7 +44,7 @@ jobs:
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        MSBuild.exe ./LiteLoaderMOD.sln -property:Configuration=Release
+        MSBuild.exe ./PM.sln -property:Configuration=Release
       shell: bash
     
     - name: MkDirs
