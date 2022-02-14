@@ -65,7 +65,6 @@ jobs:
         cp D:/Desktop/mc/plugins/*.dll D:/out/plugins
         cp D:/Desktop/mc/plugins/*.lib D:/out/sdk/Lib
         cp D:/Desktop/mc/plugins/*.pdb D:/out/plugins
-        cp -r plugins/* D:/out/plugins
       shell: bash
 
     - name: Upload plugins
