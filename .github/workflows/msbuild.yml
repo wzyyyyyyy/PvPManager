@@ -35,6 +35,7 @@ jobs:
         mv ./LiteLoaderPlugins/SDK/* ./SDK
         mkdir ../LiteLoader
         mkdir ../LiteLoader/Lib
+        ls
         ./LibraryBuilder.exe D:/BDS
         mv ../LiteLoader/Lib/* ../Lib/
       shell: bash
