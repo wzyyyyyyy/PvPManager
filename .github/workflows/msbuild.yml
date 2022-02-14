@@ -32,7 +32,6 @@ jobs:
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
         git clone https://github.com/LiteLDev/LiteLoaderPlugins.git
-        mkdir SDK
         mv ./LiteLoaderPlugins/SDK/* ./SDK
         mkdir ../LiteLoader
         mkdir ../LiteLoader/Lib
@@ -73,17 +72,10 @@ jobs:
         name: plugins
         path: D:/out/plugins
 
-    - name: Upload SDK
-      uses: actions/upload-artifact@v1.0.0
-      with:
-        name: SDK
-        path: D:/out/sdk
-
     - name: Compress to zip
       if: startsWith(github.ref, 'refs/tags/')
       run: |
         7z a D:/out/plugins.zip D:/out/plugins
-        7z a D:/out/SDK.zip D:/out/sdk
       shell: bash
 
     - name: Release
@@ -93,6 +85,5 @@ jobs:
         body_path: ${{ github.workspace }}\CHANGELOG.txt
         files: |
           D:/out/plugins.zip
-          D:/out/SDK.zip
       env:
           GITHUB_REPOSITORY: wzyyyyyyy/PvPManager
