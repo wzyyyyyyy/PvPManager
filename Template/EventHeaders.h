@@ -1,7 +1,7 @@
-#pragma once
+﻿#pragma once
 #include "PVP.h"
 #include "Global.h"
-#include <EventAPI.h>
+#include "Event.h"
 #include <TranslationAPI.h>
 #include <SendPacketAPI.h>
 #include <MC/Level.hpp>
