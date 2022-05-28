@@ -2,6 +2,7 @@
 #include "Event.h"
 #include "EventHeaders.h"
 
+
 void initEvents() {
 	Event::PlayerAttackEvent::subscribe(PlayerAttackEV);
 	Event::PlayerDieEvent::subscribe(PlayerDieEV);

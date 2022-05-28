@@ -1,5 +1,7 @@
 ﻿#include "pch.h"
 #include "EventHeaders.h"
+#include "ParticleEffect.h"
+#include "ParticleConfig.h"
 
 bool PlayerHurtEV(const Event::MobHurtEvent& ev) {
 	if (ev.mMob->isPlayer()) {
@@ -15,9 +17,9 @@ bool PlayerHurtEV(const Event::MobHurtEvent& ev) {
 		}
 
 		if (ac->isPlayer()) {
-			::Global<Level>->spawnParticleEffect("minecraft:lava_particle", ev.mMob->getPos().add(0, 0.7, 0), &ac->getDimension());
-			::Global<Level>->spawnParticleEffect("minecraft:lava_particle", ev.mMob->getPos().add(0, 1, 0), &ac->getDimension());
-			::Global<Level>->spawnParticleEffect("minecraft:lava_particle", ev.mMob->getPos().add(0, 1.3, 0), &ac->getDimension());
+			for (auto& i : ParticleEffectSetting::Particles[ParticleEffectEvent::onDie]) {
+				i.Spawn(ac->getPos(), &ac->getDimension());
+			}
 		}
 	}
 	return true;

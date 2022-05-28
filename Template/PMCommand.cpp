@@ -33,13 +33,25 @@ public:
 			break;
 		}
 		case PMCommand::allow: {
-			PvP(pl).setStatus(PvPStatus::allow);
+			auto pm = PvP(pl);
+			if (pm.isInCoolDown()) {
+				outp.addMessage(tr("pvp.command.cooldown"));
+				return;
+			}
+			pm.StartCoolDown();
+			pm.setStatus(PvPStatus::allow);
 			outp.addMessage(tr("pvp.command.allow", pl->getNameTag()));
 			::Global<Level>->broadcastText(tr("pvp.bc.allowpvp", pl->getNameTag()), TextType::RAW);
 			break;
 		}
 		case PMCommand::disallow: {
-			PvP(pl).setStatus(PvPStatus::disallow);
+			auto pm = PvP(pl);
+			if (pm.isInCoolDown()) {
+				outp.addMessage(tr("pvp.command.cooldown"));
+				return;
+			}
+			pm.StartCoolDown();
+			pm.setStatus(PvPStatus::disallow);
 			outp.addMessage(tr("pvp.command.disallow"));
 			::Global<Level>->broadcastText(tr("pvp.bc.disallowpvp", pl->getNameTag()), TextType::RAW);
 			break;

@@ -3,8 +3,8 @@
 #include "Event.h"
 #include "PvPUtils.h"
 #include "PMCommand.h"
+#include "ParticleConfig.h"
 #include <KVDBAPI.h>
-#include <LoggerAPI.h>
 #include <LLAPI.h>
 #include <TranslationAPI.h>
 
@@ -16,11 +16,16 @@ AABB area2(0, 0, 0, 0, 0, 0);
 
 void PluginInit()
 {
-	LL::registerPlugin("PvPManager", "PvPManager", LL::Version(1, 0, 0));
+	auto start = std::chrono::system_clock::now();
+	LL::registerPlugin("PvPManager", "PvPManager", LL::Version(1, 1, 4));
+	ParticleEffectSetting::reloadConfig(PARTICLEEFFECTPATH);
 	PM::initDB();
 	PM::initPvPArea();
+	PM::loadConf();
 	PM::loadLanguage();
 	initCommand();
 	initEvents();
-	logger.info("load sucess!");
+	auto end = std::chrono::system_clock::now();
+	logger.info("load sucessful in {}ms!",
+		std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count());
 }

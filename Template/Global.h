@@ -1,7 +1,8 @@
-#pragma once
+﻿#pragma once
 #include <memory>
 #define DBPATH "./plugins/PvPManager/DB"
 #define CONFIGPATH "./plugins/PvPManager/setting.json"
+#define PARTICLEEFFECTPATH "./plugins/PvPManager/ParticleEffect.json"
 
 class Logger;
 class KVDB;

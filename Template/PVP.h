@@ -19,4 +19,6 @@ public:
 	bool isFirstJoin();
 	bool isInPvPArea();
 	void SetInPvPAreaStatus(bool val);
+	void StartCoolDown();
+	bool isInCoolDown();
 };

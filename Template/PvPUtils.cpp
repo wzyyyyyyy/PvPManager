@@ -1,10 +1,12 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "Global.h"
 #include <Nlohmann/json.hpp>
 #include <KVDBAPI.h>
 #include <Utils/FileHelper.h>
 #include <unordered_map>
 #include <TranslationAPI.h>
+std::string lang = "zn_ch";
+int cool_down_tm;
 
 namespace PM {
 	void initDB() {
@@ -24,10 +26,19 @@ namespace PM {
 		db->put("dim2", json.dump());
 	}
 
-	std::string getLanguage() {
+	void loadConf() {
 		auto text = ReadAllFile(CONFIGPATH);
 		auto json = nlohmann::json::parse(text.value());
-		return json["language"].get<std::string>();
+		lang = json["language"].get<std::string>();
+		cool_down_tm = json["cooldown_time"].get<int>();
+	}
+
+	int getCoolDownTime() {
+		return cool_down_tm;
+	}
+
+	std::string getLanguage() {
+		return lang;
 	}
 
 	void loadLanguage() {

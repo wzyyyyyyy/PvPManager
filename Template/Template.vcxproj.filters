@@ -22,6 +22,9 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
+    <Filter Include="ParticleEffect">
+      <UniqueIdentifier>{7207895b-035a-47e6-b58f-11f94fed89d0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -47,6 +50,12 @@
     </ClInclude>
     <ClInclude Include="PvPUtils.h">
       <Filter>PvP</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleConfig.h">
+      <Filter>ParticleEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleEffect.h">
+      <Filter>ParticleEffect</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -85,6 +94,12 @@
     </ClCompile>
     <ClCompile Include="PlayerTickEvent.cpp">
       <Filter>Event</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleEffect.cpp">
+      <Filter>ParticleEffect</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleConfig.cpp">
+      <Filter>ParticleEffect</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
