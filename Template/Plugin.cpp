@@ -6,7 +6,7 @@
 #include "ParticleConfig.h"
 #include <KVDBAPI.h>
 #include <LLAPI.h>
-#include <TranslationAPI.h>
+#include <I18nAPI.h>
 
 Logger logger("PvPManager");
 std::unique_ptr<KVDB> db;

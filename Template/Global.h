@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include <memory>
 #define DBPATH "./plugins/PvPManager/DB"
+#define LANGPATH "plugins/PvPManager/Lang/lang.json"
 #define CONFIGPATH "./plugins/PvPManager/setting.json"
 #define PARTICLEEFFECTPATH "./plugins/PvPManager/ParticleEffect.json"
 

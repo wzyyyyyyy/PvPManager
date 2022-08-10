@@ -4,8 +4,7 @@
 #include <KVDBAPI.h>
 #include <Utils/FileHelper.h>
 #include <unordered_map>
-#include <TranslationAPI.h>
-std::string lang = "zn_ch";
+#include <I18nAPI.h>
 int cool_down_tm;
 
 namespace PM {
@@ -29,7 +28,6 @@ namespace PM {
 	void loadConf() {
 		auto text = ReadAllFile(CONFIGPATH);
 		auto json = nlohmann::json::parse(text.value());
-		lang = json["language"].get<std::string>();
 		cool_down_tm = json["cooldown_time"].get<int>();
 	}
 
@@ -37,12 +35,8 @@ namespace PM {
 		return cool_down_tm;
 	}
 
-	std::string getLanguage() {
-		return lang;
-	}
-
 	void loadLanguage() {
-		Translation::load("plugins/PvPManager/Lang/" + getLanguage() + ".json");
+		Translation::load(LANGPATH);
 	}
 
 	AABB getPvPAreaOfDim0() {
@@ -87,13 +81,13 @@ namespace PM {
 	void setPvPAreaOfDim0(AABB area) {
 		nlohmann::json json;
 		nlohmann::json pos;
-		pos["x"] = area.pointA.x;
-		pos["y"] = area.pointA.y;
-		pos["z"] = area.pointA.z;
+		pos["x"] = area.min.x;
+		pos["y"] = area.min.y;
+		pos["z"] = area.min.z;
 		json["a"] = pos;
-		pos["x"] = area.pointB.x;
-		pos["y"] = area.pointB.y;
-		pos["z"] = area.pointB.z;
+		pos["x"] = area.max.x;
+		pos["y"] = area.max.y;
+		pos["z"] = area.max.z;
 		json["b"] = pos;
 		db->set("dim0", json.dump());
 	}
@@ -101,13 +95,13 @@ namespace PM {
 	void setPvPAreaOfDim1(AABB area) {
 		nlohmann::json json;
 		nlohmann::json pos;
-		pos["x"] = area.pointA.x;
-		pos["y"] = area.pointA.y;
-		pos["z"] = area.pointA.z;
+		pos["x"] = area.min.x;
+		pos["y"] = area.min.y;
+		pos["z"] = area.min.z;
 		json["a"] = pos;
-		pos["x"] = area.pointB.x;
-		pos["y"] = area.pointB.y;
-		pos["z"] = area.pointB.z;
+		pos["x"] = area.max.x;
+		pos["y"] = area.max.y;
+		pos["z"] = area.max.z;
 		json["b"] = pos;
 		db->set("dim1", json.dump());
 	}
@@ -115,13 +109,13 @@ namespace PM {
 	void setPvPAreaOfDim2(AABB area) {
 		nlohmann::json json;
 		nlohmann::json pos;
-		pos["x"] = area.pointA.x;
-		pos["y"] = area.pointA.y;
-		pos["z"] = area.pointA.z;
+		pos["x"] = area.min.x;
+		pos["y"] = area.min.y;
+		pos["z"] = area.min.z;
 		json["a"] = pos;
-		pos["x"] = area.pointB.x;
-		pos["y"] = area.pointB.y;
-		pos["z"] = area.pointB.z;
+		pos["x"] = area.max.x;
+		pos["y"] = area.max.y;
+		pos["z"] = area.max.z;
 		json["b"] = pos;
 		db->set("dim2", json.dump());
 	}
