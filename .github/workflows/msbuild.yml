@@ -59,9 +59,9 @@ jobs:
     - name: Copy Out Files
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        cd out/build
         ls
-        cd
+        cd out
+        ls
         cp out/*.dll D:/out/plugins
         cp out/*.lib D:/out/sdk/Lib
         cp out/*.pdb D:/out/plugins
