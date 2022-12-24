@@ -35,12 +35,6 @@ jobs:
     - name: Build Library
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        rm -rf ./SDK/*
-        git clone https://github.com/LiteLDev/LiteLoaderSDK.git
-        mv -f ./LiteLoaderSDK/* ./SDK
-        cd SDK/tools
-        mkdir ../LiteLoader
-        mkdir ../LiteLoader/lib
         ./LibraryBuilder.exe D:/BDS
         mv ../LiteLoader/Lib/* ../Lib/
       shell: bash
