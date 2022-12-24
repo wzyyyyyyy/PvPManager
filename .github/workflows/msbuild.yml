@@ -59,9 +59,9 @@ jobs:
     - name: Copy Out Files
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        cd D:\a\PvPManager\PvPManager\x64\Release
+        cd D:\\a\\PvPManager\\PvPManager\\x64\\Release
         ls
-        cp D:\a\PvPManager\PvPManager\x64\Release\PvPManager.dll D:/out/plugins
+        cp D:\\a\\PvPManager\\PvPManager\\x64\\Release\\PvPManager.dll D:/out/plugins
       shell: bash
 
     - name: Upload plugins
