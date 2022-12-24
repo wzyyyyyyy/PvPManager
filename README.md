@@ -9,6 +9,7 @@ PvPManager
 	"ParticleEffects":{
                 //受伤时特效(仅玩家攻击玩家时触发)
 		"onHurt": [
+                        //如果想关闭粒子特效可以将此数组设置为空
 			{
                                 //粒子类型
 				"ParticleEffectType":"minecraft:dust",
