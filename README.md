@@ -4,7 +4,7 @@ PvPManager
 # 粒子特效设置教程
 
 配置文件格式
-'''json
+```json
 {
 	"ParticleEffects":{
 		"onHurt": [
@@ -31,4 +31,4 @@ PvPManager
 		]
 	}
 }
-'''
+```
