@@ -7,6 +7,7 @@
 #include <PlayerInfoAPI.h>
 #include <MC/Player.hpp>
 #include <MC/Level.hpp>
+#include <MC/AABB.hpp>
 #include <unordered_map>
 
 std::unordered_map<Player*, std::string> hist;
@@ -70,4 +71,48 @@ bool PvP::isInCoolDown() {
 	auto& time_a = cooldown[this->pl];
 	auto now = std::chrono::system_clock::now();
 	return std::chrono::duration_cast<std::chrono::seconds>(now - time_a).count() <= PM::getCoolDownTime();
+}
+
+bool PvP::checkPvPStatus(Player* attacker, Player* target) {
+	if (attacker->isOP()) return true;
+	if (target) {
+		auto dimid = attacker->getDimensionId();
+		switch (dimid)
+		{
+		case 0: {
+			if (area0.contains(attacker->getPos()))
+				return true;
+			break;
+		}
+		case 1: {
+			if (area1.contains(attacker->getPos()))
+				return true;
+			break;
+		}
+		case 2: {
+			if (area2.contains(attacker->getPos()))
+				return true;
+			break;
+		}
+		default:
+			break;
+		}
+		if (target->isPlayer()) {
+			PvP pl(attacker);
+			PvP tar((Player*)target);
+			if (pl.isStatus(PvPStatus::allow) && tar.isStatus(PvPStatus::allow))
+				return true;
+
+			if (pl.getStatus() == PvPStatus::allow) {
+				attacker->sendText(tr("pvp.target.disallow"));
+				return false;
+			}
+
+			if (pl.getStatus() == PvPStatus::disallow) {
+				attacker->sendText(tr("pvp.self.disallow"));
+				return false;
+			}
+		}
+	}
+	return true;
 }

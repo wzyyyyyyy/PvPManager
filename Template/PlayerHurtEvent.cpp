@@ -12,7 +12,7 @@ bool PlayerHurtEV(const Event::MobHurtEvent& ev) {
 		auto owner = ac->getOwner();
 		if (owner &&
 			owner->isPlayer()) {
-			if (!checkPvPStatus((Player*)owner, (Player*)ev.mMob))
+			if (!PvP::checkPvPStatus((Player*)owner, (Player*)ev.mMob))
 				return false;
 		}
 

@@ -7,4 +7,3 @@ bool PlayerHurtEV(const Event::MobHurtEvent& ev);
 bool PlayerRespawnEV(const Event::PlayerRespawnEvent& ev);
 
 void initEvents();
-bool checkPvPStatus(Player* attacker, Player* target);

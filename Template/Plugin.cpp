@@ -17,7 +17,7 @@ AABB area2(0, 0, 0, 0, 0, 0);
 void PluginInit()
 {
 	auto start = std::chrono::system_clock::now();
-	LL::registerPlugin("PvPManager", "PvPManager", LL::Version(1, 1, 4));
+	ll::registerPlugin("PvPManager", "PvPManager", ll::Version(1, 1, 5));
 	ParticleEffectSetting::reloadConfig(PARTICLEEFFECTPATH);
 	PM::initDB();
 	PM::initPvPArea();

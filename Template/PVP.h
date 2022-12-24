@@ -21,4 +21,5 @@ public:
 	void SetInPvPAreaStatus(bool val);
 	void StartCoolDown();
 	bool isInCoolDown();
+	static bool checkPvPStatus(Player* attacker, Player* target);
 };
