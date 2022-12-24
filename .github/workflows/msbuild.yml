@@ -38,9 +38,9 @@ jobs:
         rm -rf ./SDK/*
         git clone https://github.com/LiteLDev/LiteLoaderSDK.git
         mv -f ./LiteLoaderSDK/* ./SDK
-        cd SDK/Tools
+        cd SDK/tools
         mkdir ../LiteLoader
-        mkdir ../LiteLoader/Lib
+        mkdir ../LiteLoader/lib
         ./LibraryBuilder.exe D:/BDS
         mv ../LiteLoader/Lib/* ../Lib/
       shell: bash
