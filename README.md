@@ -1,5 +1,6 @@
 # PvPManager
 PvPManager
+[![MSBuild](https://github.com/wzyyyyyyy/PvPManager/actions/workflows/msbuild.yml/badge.svg)](https://github.com/wzyyyyyyy/PvPManager/actions/workflows/msbuild.yml)
 
 # 粒子特效设置教程
 
